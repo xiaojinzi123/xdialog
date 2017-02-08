@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--窗口的背景是透明-->
+    <style name="windows_transparent_theme" parent="Theme.AppCompat.DayNight.Dialog">
+        <!--窗口的背景是透明的-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--在弹出框框的时候背景不变色-->
+    <style name="original_bg_windows_transparent_theme" parent="windows_transparent_theme" >
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>
