@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/XDialogDemo.iml" filepath="$PROJECT_DIR$/XDialogDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xdialog.iml" filepath="$PROJECT_DIR$/xdialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/xdialog/xdialog.iml" filepath="$PROJECT_DIR$/xdialog/xdialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xdialog/xdialog-xdialog.iml" filepath="$PROJECT_DIR$/xdialog/xdialog-xdialog.iml" />
     </modules>
   </component>
 </project>
