@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -35,7 +36,7 @@ public class XDialog {
      *
      * @param context
      */
-    private static MyDialog init(Activity context) {
+    private static MyDialog init(final Activity context, final boolean cancelEable) {
 
         //创建显示的视图
         View contentView = View.inflate(context, R.layout.dialog1, null);
@@ -47,7 +48,14 @@ public class XDialog {
         dialog.setContentView(contentView);
 
         //点击额外区域不能销毁
-        //dialog.setCanceledOnTouchOutside(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                return !cancelEable;
+            }
+        });
 
         //返回对话框
         return dialog;
@@ -57,20 +65,18 @@ public class XDialog {
      * 弹出不能取消的加载框框
      *
      * @param context
-     * @param tag
      */
-    public static void show(Activity context, String tag) {
-        show(context, tag, false);
+    public static void show(Activity context) {
+        show(context, false);
     }
 
     /**
      * 显示加载框框
      *
      * @param context     上下文
-     * @param tag         标识
      * @param cancelEable 是否能点击其他区域取消
      */
-    public static void show(final Activity context, String tag, boolean cancelEable) {
+    public static void show(final Activity context, boolean cancelEable) {
 
         // 通过上下文获取Dialog
         MyDialog dialog = dialogMap.get(context);
@@ -78,7 +84,7 @@ public class XDialog {
         // 说明这个Activity对应的Context是第一次弹出
         if (dialog == null) {
             // 创建一个对话框
-            dialog = init(context);
+            dialog = init(context, cancelEable);
             // 放入集合中
             dialogMap.put(context, dialog);
         }
@@ -151,6 +157,9 @@ public class XDialog {
 
         //移除上下文对应的Dialog
         Dialog mDialog = dialogMap.remove(context);
+        if (mDialog == null) {
+            return;
+        }
         //让对话框消失
         mDialog.dismiss();
         //释放资源

@@ -14,28 +14,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="openWithTa1"
-        android:text="打开对话框tag标记:tag1" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="closeWithTa1"
-        android:text="关闭对话框tag标记:tag1" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="openCanCloseWithTa1"
-        android:text="打开可销毁对话框tag标记:tag2" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="closeWithTa2"
-        android:text="关闭对话框tag标记:tag2" />
-
-
-
+        android:onClick="open"
+        android:text="打开对话框" />
 
 </LinearLayout>
